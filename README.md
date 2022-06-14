@@ -44,7 +44,7 @@ Now, to setup the CI/CD pipeline in heroku we need 3 information
 ```
 ```
 now we need to create Dockerfile which will have all the configurations of our application as a blueprint
-```
+
 We will create the .dockerignore file and include all the relevant files which we dont want to be saved on dockerimage like venv, git, gitignore,etc
 ```
 Then we will include all the files in dockerfile 
@@ -58,6 +58,31 @@ Then we will include all the files in dockerfile
 ```
 
 
+Build Docker Image
+```
+docker build -t <image_name in small letters>:<tagname mostly latest> .
+```
+
+To llist docker image
+```
+docker images
+```
+
+Run docker image
+```
+docker run -p 5000:5000 -e PORT=5000
+```
+
+TO check running containers in Docker
+```
+docker ps
+```
+
+
+To stop Docker container
+```
+docker stop <container_id>
+```
 
 
 
