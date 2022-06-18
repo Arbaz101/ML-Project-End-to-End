@@ -65,7 +65,7 @@ Build Docker Image
 docker build -t <image_name in small letters>:<tagname mostly latest> .
 ```
 
-To llist docker image
+To list docker image
 ```
 docker images
 ```
@@ -90,7 +90,7 @@ gunicorn in Docker file - is a web server application which is used to deploy we
 
 To install the setup.py file 
 ```
-python setup.py install
+python setup.py install or use pip install setup.py
 ```
 
 
