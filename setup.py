@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from typing import List
 
 project_name = "housing-predictor"
@@ -24,6 +24,6 @@ setup(
   version= version,
   author = author,
   description=description,
-  packages= packages,
+  packages= find_packages(),
   install_requires = get_requirements_list()
 )

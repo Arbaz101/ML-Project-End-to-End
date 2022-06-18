@@ -1,0 +1,5 @@
+Afte all the setup is done and pip install -r requirements.txt file is executed.
+We will setup the folder for our project i.e. Housing
+
+In the Housing folder-
+we will create all the folders and inside it we will create __init__.py file in each of them

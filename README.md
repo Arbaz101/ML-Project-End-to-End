@@ -94,3 +94,4 @@ python setup.py install
 ```
 
 
+In requirements.txt file, we added '-e .' which will check the setup.py file and also install all the packages built in our folder that has __init__.py file in it 
