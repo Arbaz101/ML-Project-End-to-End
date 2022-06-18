@@ -1,7 +1,9 @@
 # ML-Project-End-to-End
 First Machine Learning End to End
 
-How are you?
+```
+https://github.com/avnyadav?tab=repositories
+```
 
 Creating Conda environment - 
 ```
@@ -83,6 +85,12 @@ To stop Docker container
 ```
 docker stop <container_id>
 ```
+gunicorn in Docker file - is a web server application which is used to deploy web applications of multiple language i.e. python, django,etc
 
+
+To install the setup.py file 
+```
+python setup.py install
+```
 
 
