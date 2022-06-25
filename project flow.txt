@@ -1,8 +1,12 @@
 Afte all the setup is done and pip install -r requirements.txt file is executed.
 We will setup the folder for our project i.e. Housing
 
+Data drift - Change in the distribution of the training data over the period of time which will affect the Model performance and degrrade the predictions
+
 In the Housing folder-
-we will create all the folders and inside it we will create __init__.py file in each of them
+we will create all the folders which will be needed for out project and inside it we will create __init__.py file in each of them which will be executed when we first call the class maintained in the __init__ file
 
 now, from which folder should we start with the development work:
-1 - Logger -  to collect all the logs from the code
+1 - Logger -  to collect all the logs from the code - so set up all the logs generated in our app execution and start recording them from the start as well to records the changes
+
+2 - Exception - to record the Exception haandling at the before hand to get where actually the error is getting generated
