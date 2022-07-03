@@ -1,0 +1,4 @@
+This folder will readd configuration information from databasse or a file
+
+
+config.yml file will have values for the configuration what does it holds 
