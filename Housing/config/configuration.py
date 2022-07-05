@@ -28,7 +28,7 @@ class Configuration:
                                                  DATA_INGESTION_ARTIFACT_DIR,
                                                  self.time_stamp)    #this will only give a string path to the folder and not create it actually
       
-      data_ingestion_info = self.config_info.config_info[DATA_INGESTION_CONFIG_KEY]
+      data_ingestion_info = self.config_info[DATA_INGESTION_CONFIG_KEY]
       
       dataset_download_url = data_ingestion_info[DATA_INGESTION_DOWNLOAD_URL_KEY]
       

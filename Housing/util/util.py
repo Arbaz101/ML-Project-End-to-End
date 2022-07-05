@@ -1,4 +1,4 @@
-#this util file will be used for collection of custom classes which will be used on some or the other functions
+#this util file will be used for collection of custom classes which will be used on some or the other func
 import yaml
 from Housing.exception import HousingException
 import sys

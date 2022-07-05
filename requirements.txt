@@ -4,5 +4,7 @@ itsdangerous
 Flask
 pandas
 sklearn
+pyyaml
 numpy
--e .
+
+
