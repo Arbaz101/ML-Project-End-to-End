@@ -55,7 +55,7 @@ class DataIngestion:
             raw_data_dir = self.data_ingestion_config.raw_data_dir
             
             if os.path.exists(raw_data_dir):
-                os.remove(raw_data_dir)
+                os.removedirs(raw_data_dir)
                 
             os.makedirs(raw_data_dir)
             

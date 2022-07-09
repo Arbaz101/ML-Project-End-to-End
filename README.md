@@ -93,5 +93,9 @@ To install the setup.py file
 python setup.py install or use pip install setup.py
 ```
 
-
+pip install -r requirements.txt
 In requirements.txt file, we added '-e .' which will check the setup.py file and also install all the packages built in our folder that has __init__.py file in it 
+
+```
+If the stats of our dataset changes then we term it as Data drift
+```

@@ -6,5 +6,8 @@ pandas
 sklearn
 pyyaml
 numpy
+evidently
+
+
 
 

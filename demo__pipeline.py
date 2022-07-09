@@ -1,13 +1,14 @@
 from Housing.pipeline import pipeline
+from Housing.config import configuration
 
 
-
-
-print(code)
 def main():
   try:
-      pipe = pipeline()
-      pipe = pipeline.run_pipeline()
+    pipe = pipeline()
+    pipe = pipeline.run_pipeline()
+      # config = configuration.Configuration()
+      # config.get_data_validation_config()
+    #print(config)
   except Exception as e:
       print(e)
       
