@@ -5,7 +5,7 @@ from Housing.config import configuration
 def main():
   try:
     pipe = pipeline()
-    pipe = pipeline.run_pipeline()
+    pipe.run_pipeline()
       # config = configuration.Configuration()
       # config.get_data_validation_config()
     #print(config)
