@@ -118,7 +118,8 @@ class DataValidation:
     except Exception as e:
       raise HousingException(e, sys) from e
   
-  
+
+#-------------------------------------------------------------------------------------------------------------
   def initiate_data_validation(self):
     try:
       self.is_train_test_file_exists()
