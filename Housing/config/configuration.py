@@ -4,6 +4,7 @@ from Housing.entity.config_entity import DataIngestionConfig, DataValidationConf
 from Housing.constant import *  #import all the constants maintained
 from Housing.exception import HousingException  
 from Housing.logger import logging
+from Housing.utils.util import read_yaml_file
 import sys
 
 

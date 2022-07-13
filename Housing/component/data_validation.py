@@ -6,7 +6,7 @@ from sklearn.metrics import fowlkes_mallows_score
 from Housing.logger import logging
 from Housing.exception import HousingException
 from Housing.entity.config_entity import DataValidationConfig
-from Housing.entity.artifact_entity import DataIngestionArtifact
+from Housing.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact
 
 import pandas as pd
 import json
@@ -125,6 +125,15 @@ class DataValidation:
       self.is_train_test_file_exists()
       self.validate_dataset_schema()  
       self.is_data_drift_found()
-      
+      data_validation_artifact = DataValidationArtifact(
+                schema_file_path=self.data_validation_config.schema_file_path,
+                report_file_path=self.data_validation_config.report_file_path,
+                report_page_file_path=self.data_validation_config.report_page_file_path,
+                is_validated=True,
+                message="Data Validation performed successully."
+            )
+      logging.info(f"Data validation artifact: {data_validation_artifact}")
+      return data_validation_artifact
+       
     except Exception as e:
       raise HousingException(e, sys) from e

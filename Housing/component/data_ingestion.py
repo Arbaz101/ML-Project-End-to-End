@@ -9,7 +9,7 @@ from Housing.exception import HousingException
 from Housing.logger import logging
 from Housing.entity.artifact_entity import DataIngestionArtifact
 from six.moves import urllib
-import tarfile
+import tarfile, shutil
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import StratifiedShuffleSplit
@@ -33,7 +33,7 @@ class DataIngestion:
             tgz_download_dir = self.data_ingestion_config.tgz_download_dir
             
             if os.path.exists(tgz_download_dir):
-                os.remove(tgz_download_dir)
+                shutil.rmtree(tgz_download_dir)
             
             os.makedirs(tgz_download_dir, exist_ok=True)   #create a folter for this link and if already exists then OK
             
@@ -55,7 +55,7 @@ class DataIngestion:
             raw_data_dir = self.data_ingestion_config.raw_data_dir
             
             if os.path.exists(raw_data_dir):
-                os.removedirs(raw_data_dir)
+                shutil.rmtree(raw_data_dir)
                 
             os.makedirs(raw_data_dir)
             
@@ -100,7 +100,7 @@ class DataIngestion:
                 logging.info(f"Train data is successfully saved")
                 
             if strat_test_set is not None:
-                os.makedirs(self.data_ingestion_config.ingested_test_dir)
+                os.makedirs(self.data_ingestion_config.ingested_test_dir , exist_ok=True)
                 strat_train_set.to_csv(test_file_path, index=False)
                 logging.info(f"Test data is successfully saved")
             

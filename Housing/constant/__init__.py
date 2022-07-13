@@ -1,5 +1,3 @@
-from Housing.util.util import read_yaml_file
-
 import os
 from datetime import datetime
 
@@ -52,7 +50,10 @@ COLUMN_TOTAL_ROOMS = 'total_rooms'
 COLUMN_POPULATION = 'population'
 COLUMN_HOUSEHOLDS = 'households'
 COLUMN_TOTAL_BEDROOM = 'total_bedrooms'
-DATASET_SCHEMA_COLUMNS_KEY = 'columns'
+
+DATASET_SCHEMA_COLUMNS = 'columns'
+
+TARGET_COLUMN_KEY="target_column"
 
 NUMERICAL_COLUMNS_KEY = 'numerical_columns'
 CATEGORICAL_COLUMNS_KEY = 'categorial_columns'

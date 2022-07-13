@@ -2,10 +2,11 @@ from Housing.config.configuration import Configuration
 from Housing.logger import logging
 from Housing.exception import HousingException
 
-from Housing.entity.artifact_entity import DataIngestionArtifact
-from Housing.entity.config_entity import DataIngestionConfig
+from Housing.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact, DataTransformationArtifact
+from Housing.entity.config_entity import DataIngestionConfig, DataTransformationConfig
 from Housing.component.data_ingestion import DataIngestion
 from Housing.component.data_validation import DataValidation
+from Housing.component.data_transformation import DataTransformation
 
 import os, sys
 
@@ -33,9 +34,15 @@ class pipeline:
     except Exception as e:
       raise HousingException(e, sys) from e
     
-  def start_data_transformation(self):
+  def start_data_transformation(self, 
+                                data_ingestion_artifact: DataIngestionArtifact,
+                                data_validation_artifact: DataValidationArtifact):
     try:
-      pass
+      data_transformation = DataTransformation(
+                                               data_transformation_config= self.config.get_data_transformation_config(), 
+                                               data_ingestion_artifact= data_ingestion_artifact, 
+                                               data_validation_artifact= data_validation_artifact)
+      return data_transformation.initiate_data_transformation()
     except Exception as e:
       raise HousingException(e, sys) from e
   
@@ -61,6 +68,10 @@ class pipeline:
     try:
       data_ingestion_artifact = self.start_data_ingestion()
       data_validation_artifact = self.start_data_validation(data_ingestion_artifact)
+      data_transformation_artifact = self.start_data_transformation(
+        data_ingestion_artifact=data_ingestion_artifact,
+        data_validation_artifact = data_validation_artifact
+      )
     except Exception as e:
       raise HousingException(e, sys) from e
     

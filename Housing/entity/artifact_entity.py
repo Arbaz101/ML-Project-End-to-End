@@ -1,7 +1,5 @@
 from collections import namedtuple
 
-from Housing.component.data_transformation import DataTransformation
-
 
 DataIngestionArtifact = namedtuple("DataIngestionArtifact",
                                    ["train_file_path",
