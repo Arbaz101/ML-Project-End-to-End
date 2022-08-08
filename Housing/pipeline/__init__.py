@@ -1,12 +1,14 @@
 from Housing.config.configuration import Configuration
+from Housing.constant import MODEL_TRAINER_TRAINED_MODEL_DIR_KEY
 from Housing.logger import logging
 from Housing.exception import HousingException
 
-from Housing.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact, DataTransformationArtifact
-from Housing.entity.config_entity import DataIngestionConfig, DataTransformationConfig
+from Housing.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact, DataTransformationArtifact, ModelTrainerArtifact
+from Housing.entity.config_entity import DataIngestionConfig, DataTransformationConfig, ModelTrainerConfig
 from Housing.component.data_ingestion import DataIngestion
 from Housing.component.data_validation import DataValidation
 from Housing.component.data_transformation import DataTransformation
+from Housing.component.model_trainer import ModelTrainer
 
 import os, sys
 
@@ -37,7 +39,7 @@ class pipeline:
   def start_data_transformation(self, 
                                 data_ingestion_artifact: DataIngestionArtifact,
                                 data_validation_artifact: DataValidationArtifact):
-    try:
+    try: 
       data_transformation = DataTransformation(
                                                data_transformation_config= self.config.get_data_transformation_config(), 
                                                data_ingestion_artifact= data_ingestion_artifact, 
@@ -46,9 +48,11 @@ class pipeline:
     except Exception as e:
       raise HousingException(e, sys) from e
   
-  def start_model_trainer(self):
+  def start_model_trainer(self, data_transformation_artifact: DataTransformation) -> ModelTrainerArtifact:
     try:
-      pass
+      model_trainer = ModelTrainer(model_trainer_config=self.config.get_model_trainer_config(),
+                                   data_transformation_artifact=data_transformation_artifact)
+      return model_trainer.initiate_model_trainer()
     except Exception as e:
       raise HousingException(e, sys) from e
     
@@ -72,6 +76,8 @@ class pipeline:
         data_ingestion_artifact=data_ingestion_artifact,
         data_validation_artifact = data_validation_artifact
       )
+      
+      model_trainer_artifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
     except Exception as e:
       raise HousingException(e, sys) from e
     
