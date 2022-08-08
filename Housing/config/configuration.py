@@ -164,9 +164,20 @@ class Configuration:
       raise HousingException(e, sys) from e
   
   
-  
   def get_model_evaluation_config(self) -> ModelEvaluationConfig:
-    pass
+    model_evaluation_config = self.config_info[MODEL_EVALUATION_CONFIG_KEY]
+    artifact_dir = os.path.join(self.training_pipeline_config.artifact_dir,
+                                MODEL_EVALUATION_ARTIFACT_DIR)
+    
+    model_evaluation_file_path = os.path.join(artifact_dir,
+                                              model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY])
+    
+    model_evaluation_config = ModelEvaluationConfig(model_evaluation_file_path = model_evaluation_file_path,
+                                                    time_stamp=self.time_stamp)
+    
+    logging.info(f"Model Evaluation Config: {model_evaluation_config}")
+    return model_evaluation_config
+
   
   def get_model_pusher_config(self) -> ModelPusherConfig:
     pass
