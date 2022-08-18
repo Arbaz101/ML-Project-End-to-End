@@ -8,7 +8,7 @@ pyyaml
 numpy
 evidently
 dill
-
+matplotlib
 
 
 

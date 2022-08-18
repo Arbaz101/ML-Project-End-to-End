@@ -199,7 +199,7 @@ class ModelFactory:
     def read_params(config_path: str) -> dict:
         try:
             with open(config_path) as yaml_file:
-                config:dict = yaml.safe_load(yaml_file)
+                config = yaml.safe_load(yaml_file)
             return config
         except Exception as e:
             raise HousingException(e, sys) from e
